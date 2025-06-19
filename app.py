@@ -36,8 +36,8 @@ if button:
 text = st.text_area("Enter your Review", "Type.....")
 predict_button = st.button ("Predict") 
 device = torch.device('mps') if torch.backends.mps.is_available() else torch.device('cpu')  
-
-classifier = pipeline('text-classification', model= "s3_download/bert-project-sentiment", device= device) 
+# "s3_download/bert-project-sentiment" 
+classifier = pipeline('text-classification', model= "tinyBert-sentiment-deployment-streamlit", device= device) 
 if predict_button:
     with st.spinner("Predicting....."):
         output = classifier(text)
